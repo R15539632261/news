@@ -1,0 +1,47 @@
+<view class='main'>
+<MyTitle></MyTitle>
+<!-- 首页导航 -->
+<view class='nav_wrap'> 
+<scroll-view class='nav' scroll-x>
+<view bindtap="activeNav" data-index="{{index}}" class='nav_item {{index===indexnav?"active":""}}' wx:for='{{navList}}' wx:key='{{index}}'>
+{{item.text}}
+</view>
+</scroll-view>
+
+<!-- 轮播图 -->
+<view class='slides'>
+<swiper autoplay indicator-dots='2000' circular>
+ <swiper-item wx:for="{{swiperList}}" wx:key="{{index}}">
+<image mode='' src='{{item.imgSrc}}'></image>
+ </swiper-item>
+ </swiper>
+</view>
+
+<!-- 视频 -->
+<view class='video_wrap'>
+<navigator url='../datall/datall?id={{item.id}}' class='video_item' wx:for="{{videoList}}" wx:key="{{index}}">
+<view class='video_img'>
+<image mode='widthFix' src='{{item.imgSrc}}'></image>
+<!-- 播放量 -->
+<view class='video_info'>
+<!-- 播放量 -->
+<view class='play_count_wrap'>
+<!-- 图标 -->
+<text></text>
+<!-- 数值 -->
+<text class='play_count'>{{item.playCount}}</text>
+</view>
+<!-- 评论量 -->
+<view class='comment_count_row'>
+<text></text>
+<text class='coment_count'>{{item.commentCount}}</text>
+</view>
+</view>
+</view>
+
+<view class='video_title'>{{item.desc}}</view>
+
+</navigator>
+</view>
+</view>
+</view>
